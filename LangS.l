@@ -15,7 +15,12 @@ void yyerror(std::string s);
 %%
 
 print       {return Print; }
-'.*'		{yylval = yytext; return STRING; }
+'.*'		{
+		 yylval = yytext; 
+		 yylval.erase(yylval.begin());
+		 yylval.erase(yylval.end()-1);
+		 return STRING;
+		}
 $[[:alpha:]]+     {yylval = yytext; return VAR; }
 [[:digit:]]+      {yylval = yytext; return NUM; }
 [-]         {yylval = '-'; return BinOP; }
