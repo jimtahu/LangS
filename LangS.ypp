@@ -1,0 +1,46 @@
+%{
+
+#include <string>
+#include <fstream>
+#include <iostream>
+
+#define YYSTYPE string 
+using namespace std;
+
+std::ofstream out;
+void yyerror(std::string s);
+int yylex (void);
+
+%}
+
+%token VAR
+%token NUM
+%token BinOP
+%token Print
+
+%left BinOP
+
+%%
+
+Prog:	Stm ';' Prog
+	| Stm ';'
+
+Stm:	VAR '=' Value
+	| Print VAR
+
+Value:	VAR
+	| NUM
+	| Value BinOP Value
+
+%%
+using namespace std;
+
+void yyerror(std::string s) {
+    cerr<<s<<endl;
+}
+
+int main(int argc, char *argv[]) {
+    yyparse();
+    return 0;
+}
+
