@@ -15,16 +15,16 @@ void yyerror(std::string s);
 %%
 
 print       {return Print; }
-$[a-z]+     {yylval = yytext; return VAR; }
-[0-9]+      {yylval = yytext; return NUM; }
-[-]         {yylval = "OpExp.Minus"; return BinOP; }
-[+]         {yylval = "OpExp.Plus"; return BinOP; }
-[\*]        {yylval = "OpExp.Times"; return BinOP; }
-[\\/]       {yylval = "OpExp.Div"; return BinOP; }
-[=()\[\],;]      {return *yytext; }
-
-[ \r\t\n]+        ;       /* ignore whitespace */
-.               { yyerror("Unknown character"+std::string(yytext)); };
+'.*'		{yylval = yytext; return STRING; }
+$[[:alpha:]]+     {yylval = yytext; return VAR; }
+[[:digit:]]+      {yylval = yytext; return NUM; }
+[-]         {yylval = '-'; return BinOP; }
+[+]         {yylval = '+'; return BinOP; }
+[\*]        {yylval = '*'; return BinOP; }
+[\\/]       {yylval = '/'; return BinOP; }
+[[:punct:]]      {return *yytext; }
+[[:space:]]+        ;       /* ignore whitespace */
+.               { yyerror("Unhandeled character "+std::string(yytext)); };
 %%
 
 int yywrap(void){
