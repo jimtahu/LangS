@@ -5,7 +5,7 @@
 using namespace std;
 
 void yyerror(std::string s);
-int yylex (void);
+int yyparse (void);
 
 map<string, string> varTable;
 
@@ -87,3 +87,7 @@ string binOP(string op, string a, string b){
 	}else return a+b;
 }//end binOP
 
+int main(int argc, char *argv[]) {
+    yyparse();
+    return 0;
+}//end main

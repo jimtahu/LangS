@@ -14,6 +14,7 @@ void yyerror(std::string s);
 
 %%
 
+exit        {return Exit; }
 print       {return Print; }
 '.*'		{
 		 yylval = yytext; 
@@ -21,8 +22,9 @@ print       {return Print; }
 		 yylval.erase(yylval.end()-1);
 		 return STRING;
 		}
-$[[:alpha:]]+     {yylval = yytext; return VAR; }
-[[:digit:]]+      {yylval = yytext; return NUM; }
+[[:digit:]]+      {yylval = yytext; return STRING; }
+$[[:alpha:]]+     {yylval = yytext; return Scalar; }
+%[[:alpha:]]+     {yylval = yytext; return Vector; }
 [-]         {yylval = '-'; return BinOP; }
 [+]         {yylval = '+'; return BinOP; }
 [\*]        {yylval = '*'; return BinOP; }
