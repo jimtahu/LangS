@@ -62,12 +62,30 @@ string getValue(string name){
 * @return The result of the operation on the two values.
 */
 string binOP(string op, string a, string b){
+	if(!op.compare("+")){
 	try{
 		double x=str2num(a);
 		double y=str2num(b);
 		return num2str(x+y);
 	}catch(string tx){
 		return a+b;
-	}
+	}//end try
+	}else if(!op.compare("-")){
+	try{
+		double x=str2num(a);
+                double y=str2num(b);
+                return num2str(x-y);
+	}catch(string tx){
+		return "NaN";
+	}//end try
+	}else if(!op.compare("*")){
+	try{
+		double x=str2num(a);
+		double y=str2num(b);
+		return num2str(x*y);
+	}catch(string tx){
+		return "NaN";
+	}//end try
+	}else return a+b;
 }//end binOP
 
