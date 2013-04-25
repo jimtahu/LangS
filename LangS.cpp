@@ -54,6 +54,14 @@ string getValue(string name){
 	return varTable[name];
 }//end getValue
 
+#define TRY_NUM(OP) try{                 \
+		double x=str2num(a);     \
+		double y=str2num(b);	 \
+		return num2str(x OP y);  \
+	}catch(string tx){               \
+		return "NaN";		 \
+	}//end try                       \
+
 /**
 * Performs an operation on two values.
 * @param op The operation to perform
@@ -71,21 +79,11 @@ string binOP(string op, string a, string b){
 		return a+b;
 	}//end try
 	}else if(!op.compare("-")){
-	try{
-		double x=str2num(a);
-                double y=str2num(b);
-                return num2str(x-y);
-	}catch(string tx){
-		return "NaN";
-	}//end try
+		TRY_NUM(-);
 	}else if(!op.compare("*")){
-	try{
-		double x=str2num(a);
-		double y=str2num(b);
-		return num2str(x*y);
-	}catch(string tx){
-		return "NaN";
-	}//end try
+		TRY_NUM(*);
+	}else if(!op.compare("/")){
+		TRY_NUM(/);
 	}else return a+b;
 }//end binOP
 
