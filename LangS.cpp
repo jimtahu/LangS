@@ -9,28 +9,58 @@ int yylex (void);
 
 map<string, string> varTable;
 
+/**
+* Converts a string into a double.
+* @return The double repersented by the string.
+* @param text The string to convert.
+* Uses stringstream for the conversion, so 7k.89 is 7.
+*/
 double str2num(string text){
 	stringstream ss(text);
 	double ret;
 	ss>>ret ? ret : throw text;
 	return ret;
-}
+}//end str2num
 
+/**
+* Converts a double to a string.
+* @param val The double to convert.
+* @return The string repersenting the double.
+*/
 string num2str(double val){
 	stringstream ss;
 	ss<<val;
 	return ss.str();
-}
+}//end num2str
 
+/**
+* Places a varable into the table.
+* @param name The lable for the varable.
+* @param value The value the varable now holds.
+* @return value, for convienace.
+*/
 string setValue(string name, string value){
 	varTable[name]=value;
 	return value;
-}
+}//end setValue
 
+/**
+* Fetches the value for a varable.
+* @param name The lable of the varable to fetch.
+* @return the value.
+* Fetching a variable which has not been stored is undefined.
+*/
 string getValue(string name){
 	return varTable[name];
 }//end getValue
 
+/**
+* Performs an operation on two values.
+* @param op The operation to perform
+* @param a First Operator
+* @param b Second Operator
+* @return The result of the operation on the two values.
+*/
 string binOP(string op, string a, string b){
 	try{
 		double x=str2num(a);
