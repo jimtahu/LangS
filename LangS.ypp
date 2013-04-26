@@ -5,9 +5,11 @@
 #include <iostream>
 
 #include "LangS.h"
+#include "ParseTree.h"
 
-#define YYSTYPE string 
+#define YYSTYPE Node* 
 using namespace std;
+using namespace ParseTree;
 
 std::ofstream out;
 void yyerror(std::string s);
@@ -29,15 +31,15 @@ int yylex (void);
 Prog:	Stm ';' Prog
 	| Stm ';'
 
-Stm:	Exit			{ }
-	| Scalar '=' Value	{ setValue($1, $3); }
+Stm:	Exit			{ $$ = new ExitStatement();}
+	| Scalar '=' Value	{ $$ = new AssingmentStatement((Identifier*)$1,(Value*)$3); }
 	| Vector '=' List	{ }
 	| Value			{ }
-	| Print Value 		{ cout<< $2 <<endl; }
+	| Print Value 		{ $$ = new PrintStatement((Value*)$2); }
 
-Value:	Scalar			{ $$ = getValue($1); }
+Value:	Scalar			{ $$ = $1; }
 	| STRING		{ $$ = $1; }
-	| Value BinOP Value	{ $$ = binOP($2,$1,$3); }
+	| Value BinOP Value	{ $$ = new BinOpValue(((Identifier*)$2)->getName(),(Value*)$1,(Value*)$3); }
 
 List: '[' Items ']'
 

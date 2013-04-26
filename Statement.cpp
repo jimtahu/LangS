@@ -14,7 +14,6 @@ namespace ParseTree {
 using namespace std;
 
 Statement::Statement() {
-	cerr << "Creation of abstract statement" << endl;
 }
 
 void Statement::Execute(){
