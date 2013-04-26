@@ -1,4 +1,4 @@
-CXX=distcc g++
+CXX=distcc clang++
 #CFLAGS= -O2 -pipe -march=native
 CFLAGS=-ggdb
 CXXFLAGS=$(CFLAGS)
