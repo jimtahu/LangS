@@ -19,9 +19,9 @@ private:
 public:
 	Variable(string name);
 	Variable(Variable &other);
-	string GetName();
-	string GetValue();
-	void SetValue(string value);
+	virtual string GetName();
+	virtual string GetValue();
+	virtual void SetValue(string value);
 	virtual ~Variable();
 };
 
