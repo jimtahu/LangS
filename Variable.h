@@ -15,13 +15,10 @@ using namespace std;
 class Variable {
 private:
 	string Name;
-	string Value;
 public:
 	Variable(string name);
 	Variable(Variable &other);
 	virtual string GetName();
-	virtual string GetValue();
-	virtual void SetValue(string value);
 	virtual ~Variable();
 };
 

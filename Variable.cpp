@@ -13,19 +13,10 @@ Variable::Variable(string name){
 
 Variable::Variable(Variable &other){
 	this->Name=other.GetName();
-	this->Value=other.GetValue();
 }
 
 string Variable::GetName(void){
 	return this->Name;
-}
-
-string Variable::GetValue(void){
-	return this->Value;
-}
-
-void Variable::SetValue(string value){
-	this->Value=value;
 }
 
 Variable::~Variable(){

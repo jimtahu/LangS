@@ -2,14 +2,14 @@
 #include <iostream>
 #include <map>
 
-#include "Variable.h"
+#include "ScalarVariable.h"
 
 using namespace std;
 
 void yyerror(std::string s);
 int yyparse (void);
 
-map<string, Variable*> varTable;
+map<string, ScalarVariable*> varTable;
 
 /**
 * Converts a string into a double.
@@ -42,7 +42,7 @@ string num2str(double val){
 * @return value, for convienace.
 */
 string setValue(string name, string value){
-	if(varTable.count(name)==0)varTable[name]=new Variable(name);
+	if(varTable.count(name)==0)varTable[name]=new ScalarVariable(name);
 	varTable[name]->SetValue(value);
 	return value;
 }//end setValue
