@@ -1,8 +1,12 @@
 CXX=distcc g++
+#CFLAGS= -O2 -pipe -march=native
 CFLAGS=-ggdb
 CXXFLAGS=$(CFLAGS)
+SRC= $(wildcard *.cpp)
+OBJ= $(SRC:.cpp=.o) LangS.tab.o LangS.yy.o
 
-LangS: LangS.tab.o LangS.yy.o LangS.o
+
+LangS: $(OBJ) 
 	$(CXX) -o $@ $^
 
 LangS.tab.cpp LangS.tab.hpp: LangS.ypp
@@ -13,3 +17,6 @@ LangS.yy.cpp: LangS.l
 
 clean:
 	rm -f *.o *.tab.cpp *.yy.cpp *.tab.hpp
+
+.PHONY: build zip test clean all
+
