@@ -1,10 +1,12 @@
-CXX=distcc g++
+CXX=distcc clang++
 #CFLAGS= -O2 -pipe -march=native
 CFLAGS=-ggdb
 CXXFLAGS=$(CFLAGS)
 SRC= $(wildcard *.cpp)
 OBJ= $(SRC:.cpp=.o) LangS.tab.o LangS.yy.o
 
+
+all: LangS test
 
 LangS: $(OBJ) 
 	$(CXX) -o $@ $^

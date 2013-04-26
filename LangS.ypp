@@ -29,7 +29,7 @@ int yylex (void);
 Prog:	Stm ';' Prog
 	| Stm ';'
 
-Stm:	Exit			{ }
+Stm:	Exit			{ exit(0); }
 	| Scalar '=' Value	{ setValue($1, $3); }
 	| Vector '=' List	{ }
 	| Value			{ }

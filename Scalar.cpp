@@ -2,12 +2,14 @@
 #include <iostream>
 #include <map>
 
+#include "Variable.h"
+
 using namespace std;
 
 void yyerror(std::string s);
 int yyparse (void);
 
-map<string, string> varTable;
+map<string, Variable*> varTable;
 
 /**
 * Converts a string into a double.
@@ -40,7 +42,8 @@ string num2str(double val){
 * @return value, for convienace.
 */
 string setValue(string name, string value){
-	varTable[name]=value;
+	if(varTable.count(name)==0)varTable[name]=new Variable(name);
+	varTable[name]->SetValue(value);
 	return value;
 }//end setValue
 
@@ -51,14 +54,14 @@ string setValue(string name, string value){
 * Fetching a variable which has not been stored is undefined.
 */
 string getValue(string name){
-	return varTable[name];
+	return varTable[name]->GetValue();
 }//end getValue
 
 #define TRY_NUM(OP) try{                 \
 		double x=str2num(a);     \
 		double y=str2num(b);	 \
 		return num2str(x OP y);  \
-	}catch(string tx){               \
+	}catch(string &tx){               \
 		return "NaN";		 \
 	}//end try                       \
 
@@ -75,7 +78,7 @@ string binOP(string op, string a, string b){
 		double x=str2num(a);
 		double y=str2num(b);
 		return num2str(x+y);
-	}catch(string tx){
+	}catch(string &tx){
 		return a+b;
 	}//end try
 	}else if(!op.compare("-")){
@@ -85,6 +88,7 @@ string binOP(string op, string a, string b){
 	}else if(!op.compare("/")){
 		TRY_NUM(/);
 	}else return a+b;
+	return "MAJICS_VALUE";
 }//end binOP
 
 int main(int argc, char *argv[]) {
