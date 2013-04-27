@@ -4,8 +4,9 @@
 #include <iostream>
 #include <stdlib.h>
 
-#define YYSTYPE std::string 
+#define YYSTYPE ParseTree::Node*
 
+#include "ParseTree.h"
 #include "LangS.tab.hpp"
 
 void yyerror(std::string s);
@@ -17,18 +18,19 @@ void yyerror(std::string s);
 exit        {return Exit; }
 print       {return Print; }
 '.*'		{
-		 yylval = yytext; 
-		 yylval.erase(yylval.begin());
-		 yylval.erase(yylval.end()-1);
+	     std::string text=yytext;
+		 text.erase(text.begin());
+		 text.erase(text.end()-1);
+		 yylval = new ParseTree::StringValue(text);
 		 return STRING;
 		}
-[[:digit:]]+      {yylval = yytext; return STRING; }
-$[[:alpha:]]+     {yylval = yytext; return Scalar; }
-%[[:alpha:]]+     {yylval = yytext; return Vector; }
-[-]         {yylval = '-'; return BinOP; }
-[+]         {yylval = '+'; return BinOP; }
-[\*]        {yylval = '*'; return BinOP; }
-[\\/]       {yylval = '/'; return BinOP; }
+[[:digit:]]+      {yylval = new ParseTree::StringValue(yytext); return STRING; }
+$[[:alpha:]]+     {yylval = new ParseTree::Identifier(yytext); return Scalar; }
+%[[:alpha:]]+     {yylval = new ParseTree::Identifier(yytext); return Vector; }
+[-]         {yylval = new ParseTree::Identifier("-"); return BinOP; }
+[+]         {yylval = new ParseTree::Identifier("+"); return BinOP; }
+[\*]        {yylval = new ParseTree::Identifier("*"); return BinOP; }
+[\\/]       {yylval = new ParseTree::Identifier("/"); return BinOP; }
 [[:punct:]]      {return *yytext; }
 [[:space:]]+        ;       /* ignore whitespace */
 .               { yyerror("Unhandeled character "+std::string(yytext)); };
