@@ -14,7 +14,7 @@ Program::Program() {
 }
 
 void Program::add(Statement *stmt){
-	this->code.push_back(stmt);
+	code.insert(code.begin(),stmt);
 }
 
 void Program::run(){

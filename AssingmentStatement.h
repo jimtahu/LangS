@@ -19,6 +19,7 @@ private:
 	Value *value;
 public:
 	AssingmentStatement(Identifier *id, Value *value);
+	void Execute();
 	virtual ~AssingmentStatement();
 };
 

@@ -18,7 +18,7 @@ private:
 public:
 	Identifier(std::string name);
 	std::string getName();
-	void setValue(std::string value);
+	std::string getValue();
 	virtual ~Identifier();
 };
 
