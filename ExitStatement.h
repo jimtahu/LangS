@@ -12,9 +12,14 @@
 
 namespace ParseTree {
 
+class ExitCondition {
+
+};
+
 class ExitStatement: public ParseTree::Statement {
 public:
 	ExitStatement();
+	void Execute();
 	virtual ~ExitStatement();
 };
 

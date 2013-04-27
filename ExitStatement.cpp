@@ -14,6 +14,10 @@ ExitStatement::ExitStatement() {
 
 }
 
+void ExitStatement::Execute(){
+	throw new ExitCondition();
+}
+
 ExitStatement::~ExitStatement() {
 	// TODO Auto-generated destructor stub
 }

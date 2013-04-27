@@ -38,8 +38,12 @@ extern ParseTree::Program *theProg;
 
 int main(int argc, char *argv[]) {
 	theProg = new ParseTree::Program();
-    yyparse();
-    theProg->run();
+	try{
+		yyparse();
+		theProg->run();
+	}catch(ParseTree::ExitCondition *ex){
+		cout<<"Program terminated"<<endl;
+	}
     delete theProg;
     return 0;
 }//end main
