@@ -30,7 +30,7 @@ Program *theProg;
 %%
 
 Prog:	Stm ';' Prog	{ theProg->add((Statement *)$1); }
-	| Stm ';'			{ theProg->add((Statement *)$1); }
+	| Stm ';'	{ theProg->add((Statement *)$1); }
 
 Stm:	Exit			{ $$ = new ExitStatement();}
 	| Scalar '=' Value	{ $$ = new AssingmentStatement((Identifier*)$1,(Value*)$3); }
