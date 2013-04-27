@@ -18,6 +18,7 @@ private:
 	Value *value;
 public:
 	PrintStatement(Value *output);
+	void Execute();
 	virtual ~PrintStatement();
 };
 
