@@ -18,4 +18,6 @@
 #include "ExitStatement.h"
 #include "PrintStatement.h"
 
+#include "Program.h"
+
 #endif /* PARSETREE_H_ */

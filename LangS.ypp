@@ -14,6 +14,8 @@ std::ofstream out;
 void yyerror(std::string s);
 int yylex (void);
 
+Program *theProg;
+
 %}
 
 %token Scalar
@@ -27,8 +29,8 @@ int yylex (void);
 
 %%
 
-Prog:	Stm ';' Prog
-	| Stm ';'
+Prog:	Stm ';' Prog	{ theProg->add((Statement *)$1); }
+	| Stm ';'			{ theProg->add((Statement *)$1); }
 
 Stm:	Exit			{ $$ = new ExitStatement();}
 	| Scalar '=' Value	{ $$ = new AssingmentStatement((Identifier*)$1,(Value*)$3); }
