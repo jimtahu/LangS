@@ -6,6 +6,7 @@
  */
 
 #include "Identifier.h"
+#include "Variable.h"
 
 namespace ParseTree {
 
@@ -17,6 +18,10 @@ Identifier::Identifier(string name) {
 
 string Identifier::getName(){
 	return this->Name;
+}
+
+string Identifier::getValue(){
+	return getScalar(this->Name);
 }
 
 Identifier::~Identifier() {

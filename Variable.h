@@ -12,6 +12,9 @@
 
 using namespace std;
 
+string setScalar(string name, string value);
+string getScalar(string name);
+
 class Variable {
 private:
 	string Name;

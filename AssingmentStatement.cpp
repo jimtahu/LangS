@@ -6,12 +6,17 @@
  */
 
 #include "AssingmentStatement.h"
+#include "Variable.h"
 
 namespace ParseTree {
 
 AssingmentStatement::AssingmentStatement(Identifier *id, Value *value) {
 	this->id=id;
 	this->value=value;
+}
+
+void AssingmentStatement::Execute(){
+	setScalar(this->id->getName(),this->value->getValue());
 }
 
 AssingmentStatement::~AssingmentStatement() {

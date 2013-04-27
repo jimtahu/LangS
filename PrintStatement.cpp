@@ -5,6 +5,8 @@
  *      Author: jimtahu
  */
 
+#include <iostream>
+
 #include "PrintStatement.h"
 #include <iostream>
 
@@ -17,7 +19,7 @@ PrintStatement::PrintStatement(Value *output) {
 }
 
 void PrintStatement::Execute(){
-	cout << this->value->getValue() << endl;
+	cout<<this->value->getValue()<<endl;
 }
 
 PrintStatement::~PrintStatement() {
