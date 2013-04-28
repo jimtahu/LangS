@@ -10,9 +10,11 @@
 
 #include "Variable.h"
 
+namespace runtime {
+
 class ListItem {
 public:
-	string value;
+	std::string value;
 	ListItem *next;
 public:
 };
@@ -20,9 +22,9 @@ public:
 class ListVarable: public Variable {
 	ListItem *head;
 public:
-	ListVarable(string name);
-	void add(string value);
+	ListVarable(std::string name);
+	void add(std::string value);
 	virtual ~ListVarable();
 };
-
+}//end namespace runtime
 #endif /* LIST_H_ */

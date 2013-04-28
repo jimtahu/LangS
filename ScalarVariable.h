@@ -10,14 +10,20 @@
 
 #include "Variable.h"
 
+namespace runtime {
+
+std::string setScalar(std::string name, std::string value);
+std::string getScalar(std::string name);
+
 class ScalarVariable: public Variable {
-	string Value;
+	std::string Value;
 public:
-	ScalarVariable(string name);
+	ScalarVariable(std::string name);
 	ScalarVariable(ScalarVariable &other);
-	string GetValue();
-	void SetValue(string value);
+	std::string GetValue();
+	void SetValue(std::string value);
 	virtual ~ScalarVariable();
 };
+}//end namespace runtime
 
 #endif /* SCALARVARIABLE_H_ */

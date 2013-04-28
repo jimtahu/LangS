@@ -6,11 +6,12 @@
  */
 
 #include "Identifier.h"
-#include "Variable.h"
+#include "ScalarVariable.h"
 
 namespace ParseTree {
 
 using namespace std;
+using namespace runtime;
 
 Identifier::Identifier(string name) {
 	this->Name = name;

@@ -10,19 +10,17 @@
 
 #include <string>
 
-using namespace std;
-
-string setScalar(string name, string value);
-string getScalar(string name);
+namespace runtime {
 
 class Variable {
 private:
-	string Name;
+	std::string Name;
 public:
-	Variable(string name);
+	Variable(std::string name);
 	Variable(Variable &other);
-	virtual string GetName();
+	virtual std::string GetName();
 	virtual ~Variable();
 };
 
+}//end namespace runtime
 #endif /* VARIABLE_H_ */

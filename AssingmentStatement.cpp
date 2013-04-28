@@ -6,9 +6,11 @@
  */
 
 #include "AssingmentStatement.h"
-#include "Variable.h"
+#include "ScalarVariable.h"
 
 namespace ParseTree {
+
+using namespace runtime;
 
 AssingmentStatement::AssingmentStatement(Identifier *id, Value *value) {
 	this->id=id;

@@ -7,6 +7,10 @@
 
 #include "ListVariable.h"
 
+namespace runtime {
+
+using namespace std;
+
 ListVarable::ListVarable(string name):Variable(name) {
 	this->head=NULL;
 }
@@ -26,3 +30,5 @@ ListVarable::~ListVarable() {
 		item=this->head;
 	}//end while list items
 }
+
+}//end namespace runtime
