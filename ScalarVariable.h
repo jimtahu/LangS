@@ -14,6 +14,7 @@ namespace runtime {
 
 std::string setScalar(std::string name, std::string value);
 std::string getScalar(std::string name);
+void cleanScalars();
 
 class ScalarVariable: public Variable {
 	std::string Value;

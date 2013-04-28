@@ -3,6 +3,7 @@
 #include <map>
 
 #include "ParseTree.h"
+#include "ScalarVariable.h"
 
 using namespace std;
 
@@ -43,8 +44,10 @@ int main(int argc, char *argv[]) {
 		theProg->run();
 	}catch(ParseTree::ExitCondition *ex){
 		cout<<"Program terminated"<<endl;
+		delete ex;
 	}
     delete theProg;
+    runtime::cleanScalars();
     return 0;
 }//end main
 

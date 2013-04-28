@@ -38,6 +38,16 @@ string getScalar(string name){
 	else return "EMPTY";
 }//end getValue
 
+/**
+ * Cleans out the Scalar table.
+ */
+void cleanScalars(){
+	for(map<string, ScalarVariable*>::iterator i=scalarTable.begin();
+			i!=scalarTable.end();i++){
+			delete i->second;
+	}//end for table
+}//end cleanScalars
+
 ScalarVariable::ScalarVariable(string name):Variable(name){
 	this->Value="";
 }

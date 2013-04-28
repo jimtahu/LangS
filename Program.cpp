@@ -25,7 +25,9 @@ void Program::run(){
 }
 
 Program::~Program() {
-
+	for(std::vector<Statement *>::iterator i=code.begin(); i!=code.end(); i++){
+			delete *i;
+	}
 }
 
 } /* namespace ParseTree */

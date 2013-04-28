@@ -22,7 +22,8 @@ void AssingmentStatement::Execute(){
 }
 
 AssingmentStatement::~AssingmentStatement() {
-	// TODO Auto-generated destructor stub
+	delete this->id;
+	delete this->value;
 }
 
 } /* namespace ParseTree */

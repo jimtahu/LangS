@@ -49,7 +49,8 @@ string BinOpValue::getValue(){
 }
 
 BinOpValue::~BinOpValue() {
-	// TODO Auto-generated destructor stub
+	delete this->a;
+	delete this->b;
 }
 
 } /* namespace ParseTree */

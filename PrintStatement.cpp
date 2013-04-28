@@ -23,7 +23,7 @@ void PrintStatement::Execute(){
 }
 
 PrintStatement::~PrintStatement() {
-	// TODO Auto-generated destructor stub
+	delete this->value;
 }
 
 } /* namespace ParseTree */
