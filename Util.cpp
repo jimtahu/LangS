@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
 		delete ex;
 	}
     delete theProg;
-    runtime::cleanScalars();
+    RunTime::cleanScalars();
     return 0;
 }//end main
 

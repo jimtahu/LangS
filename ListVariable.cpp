@@ -7,7 +7,7 @@
 
 #include "ListVariable.h"
 
-namespace runtime {
+namespace RunTime {
 
 using namespace std;
 

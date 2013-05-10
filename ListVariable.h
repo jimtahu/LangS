@@ -10,7 +10,7 @@
 
 #include "Variable.h"
 
-namespace runtime {
+namespace RunTime {
 
 class ListItem {
 public:

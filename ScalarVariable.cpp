@@ -8,7 +8,7 @@
 #include <map>
 #include "ScalarVariable.h"
 
-namespace runtime{
+namespace RunTime{
 
 using namespace std;
 

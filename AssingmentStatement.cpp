@@ -10,7 +10,7 @@
 
 namespace ParseTree {
 
-using namespace runtime;
+using namespace RunTime;
 
 AssingmentStatement::AssingmentStatement(Identifier *id, Value *value) {
 	this->id=id;

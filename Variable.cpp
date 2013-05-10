@@ -8,7 +8,7 @@
 
 #include "Variable.h"
 
-namespace runtime{
+namespace RunTime{
 
 using namespace std;
 

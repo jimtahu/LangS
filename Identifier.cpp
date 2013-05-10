@@ -11,7 +11,7 @@
 namespace ParseTree {
 
 using namespace std;
-using namespace runtime;
+using namespace RunTime;
 
 Identifier::Identifier(string name) {
 	this->Name = name;

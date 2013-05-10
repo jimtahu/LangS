@@ -10,7 +10,7 @@
 
 #include "Variable.h"
 
-namespace runtime {
+namespace RunTime {
 
 std::string setScalar(std::string name, std::string value);
 std::string getScalar(std::string name);

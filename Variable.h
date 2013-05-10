@@ -10,7 +10,7 @@
 
 #include <string>
 
-namespace runtime {
+namespace RunTime {
 
 class Variable {
 private:
