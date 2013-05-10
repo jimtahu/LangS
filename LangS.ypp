@@ -34,12 +34,13 @@ Prog:	Stm ';' Prog	{ theProg->add((Statement *)$1); }
 
 Stm:	Exit			{ $$ = new ExitStatement();}
 	| Scalar '=' Value	{ $$ = new AssingmentStatement((Identifier*)$1,(Value*)$3); }
-	| Vector '=' List	{ }
+	| Vector '=' List	{ $$ = new AssingmentStatement((Identifier*)$1,new StringValue("#list#")); }
 	| Value			{ }
 	| Print Value 		{ $$ = new PrintStatement((Value*)$2); }
 
-Value:	Scalar			{ $$ = $1; }
-	| STRING		{ $$ = $1; }
+Value:	STRING 			{ $$ = $1; }
+	| Vector		{ $$ = $1; }
+	| Scalar		{ $$ = $1; }
 	| Value BinOP Value	{ $$ = new BinOpValue(((Identifier*)$2)->getName(),(Value*)$1,(Value*)$3); }
 
 List: '[' Items ']'
