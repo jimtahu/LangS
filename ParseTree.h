@@ -12,6 +12,7 @@
 #include "Value.h"
 #include "Identifier.h"
 #include "StringValue.h"
+#include "ListValue.h"
 #include "BinOpValue.h"
 #include "Statement.h"
 #include "AssingmentStatement.h"

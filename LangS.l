@@ -25,8 +25,7 @@ print       {return Print; }
 		 return STRING;
 		}
 [[:digit:]]+      {yylval = new ParseTree::StringValue(yytext); return STRING; }
-$[[:alpha:]]+     {yylval = new ParseTree::Identifier(yytext); return Scalar; }
-%[[:alpha:]]+     {yylval = new ParseTree::Identifier(yytext); return Vector; }
+$[[:alpha:]]+     {yylval = new ParseTree::Identifier(yytext); return Ident; }
 [-]         {yylval = new ParseTree::Identifier("-"); return BinOP; }
 [+]         {yylval = new ParseTree::Identifier("+"); return BinOP; }
 [\*]        {yylval = new ParseTree::Identifier("*"); return BinOP; }
