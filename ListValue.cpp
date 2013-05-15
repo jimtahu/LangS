@@ -23,6 +23,14 @@ string ListValue::getValue(){
 	return "%LIST%";
 }
 
+void ListValue::toXML(std::ostream &out){
+	out<<"<ListValue id=\'"<<(void *)this<<"\' >"<<std::endl;
+	for(std::vector<Value *>::iterator i=items.begin(); i!=items.end(); i++){
+		(*i)->toXML(out);
+	}
+	out<<"</Program>"<<std::endl;
+}//end toXML
+
 ListValue::~ListValue() {
 	for(std::vector<Value *>::iterator i=items.begin(); i!=items.end(); i++)
 		delete *i;

@@ -20,6 +20,7 @@ public:
 	ListValue(Value *head);
 	void add(Value *item);
 	std::string getValue();
+	virtual void toXML(std::ostream &out);
 	virtual ~ListValue();
 };
 

@@ -20,6 +20,7 @@ private:
 public:
 	BinOpValue(std::string op, Value *a, Value *b);
 	std::string getValue();
+	virtual void toXML(std::ostream &out);
 	virtual ~BinOpValue();
 };
 

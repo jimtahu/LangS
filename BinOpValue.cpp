@@ -48,6 +48,14 @@ string BinOpValue::getValue(){
 	return "MAJICS_VALUE";
 }
 
+void BinOpValue::toXML(std::ostream &out){
+	out<<"<BinOpValue id=\'"<<(void *)this
+	   <<" op='"<<this->op<<"' >"<<endl;
+	this->a->toXML(out);
+	this->b->toXML(out);
+	out<<"</BinOpValue>"<<endl;
+}
+
 BinOpValue::~BinOpValue() {
 	delete this->a;
 	delete this->b;
