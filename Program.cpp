@@ -24,6 +24,14 @@ void Program::run(){
 	return;
 }
 
+void Program::toXML(std::ostream &out){
+	out<<"<Program id=\'"<<(void *)this<<"\' >"<<std::endl;
+	for(std::vector<Statement *>::iterator i=code.begin(); i!=code.end(); i++){
+		(*i)->toXML(out);
+	}
+	out<<"</Program>"<<std::endl;
+}//end toXML
+
 Program::~Program() {
 	for(std::vector<Statement *>::iterator i=code.begin(); i!=code.end(); i++){
 			delete *i;

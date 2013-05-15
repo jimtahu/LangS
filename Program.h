@@ -20,6 +20,7 @@ public:
 	Program();
 	void add(Statement *stmt);
 	void run();
+	void toXML(std::ostream &out);
 	virtual ~Program();
 };
 

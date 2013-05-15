@@ -14,8 +14,17 @@ Node::Node() {
 
 }
 
+void Node::toXML(std::ostream &out){
+	out<<"<node id=\'"<<(void *)this<<"\' />"<<std::endl;
+}
+
 Node::~Node() {
 	// TODO Auto-generated destructor stub
 }
+
+std::ostream &operator <<(std::ostream &out,Node &node){
+	node.toXML(out);
+	return out;
+}//end <<
 
 } /* namespace ParseTree */

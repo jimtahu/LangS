@@ -41,6 +41,7 @@ int main(int argc, char *argv[]) {
 	theProg = new ParseTree::Program();
 	try{
 		yyparse();
+		theProg->toXML(cout);
 		theProg->run();
 	}catch(ParseTree::ExitCondition *ex){
 		cout<<"Program terminated"<<endl;
