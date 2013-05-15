@@ -16,6 +16,7 @@ class Statement: public ParseTree::Node {
 public:
 	Statement();
 	virtual void Execute();
+	virtual void toXML(std::ostream &out);
 	virtual ~Statement();
 };
 

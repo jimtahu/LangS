@@ -18,6 +18,7 @@ private:
 public:
 	StringValue(std::string value);
 	std::string getValue();
+	virtual void toXML(std::ostream &out);
 	virtual ~StringValue();
 };
 

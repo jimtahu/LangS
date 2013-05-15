@@ -19,6 +19,12 @@ string StringValue::getValue(){
 	return this->value;
 }
 
+void StringValue::toXML(std::ostream &out){
+	out<<"<StringValue id=\'"<<(void *)this
+	   <<"\' value='"<<this->getValue()<<"\' />"
+	   <<endl;
+}//end toXML
+
 StringValue::~StringValue() {
 	// TODO Auto-generated destructor stub
 }

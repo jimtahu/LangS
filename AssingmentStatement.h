@@ -20,6 +20,7 @@ private:
 public:
 	AssingmentStatement(Identifier *id, Value *value);
 	void Execute();
+	void toXML(std::ostream &out);
 	virtual ~AssingmentStatement();
 };
 

@@ -25,6 +25,12 @@ string Identifier::getValue(){
 	return getScalar(this->Name);
 }
 
+void Identifier::toXML(std::ostream &out){
+	out<<"<Identifier id=\'"<<(void *)this
+	   <<"\' name=\'"<<this->getName()
+	   <<"\' />"<<endl;
+}
+
 Identifier::~Identifier() {
 	// TODO Auto-generated destructor stub
 }

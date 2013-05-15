@@ -20,6 +20,10 @@ void Statement::Execute(){
 	cerr << "Attempted execution of abstract statement" << endl;
 }
 
+void Statement::toXML(std::ostream &out){
+	out<<"<Statement id=\'"<<(void *)this<<"\' />"<<std::endl;
+}
+
 Statement::~Statement() {
 	// TODO Auto-generated destructor stub
 }

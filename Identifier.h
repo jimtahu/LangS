@@ -19,6 +19,7 @@ public:
 	Identifier(std::string name);
 	std::string getName();
 	std::string getValue();
+	virtual void toXML(std::ostream &out);
 	virtual ~Identifier();
 };
 

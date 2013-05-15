@@ -21,6 +21,13 @@ void AssingmentStatement::Execute(){
 	setScalar(this->id->getName(),this->value->getValue());
 }
 
+void AssingmentStatement::toXML(std::ostream &out){
+	out<<"<AssingmentStatement id=\'"<<(void *)this<<"\' >"<<std::endl;
+	this->id->toXML(out);
+	this->value->toXML(out);
+	out<<"</AssingmentStatement>"<<std::endl;
+}//end toXML
+
 AssingmentStatement::~AssingmentStatement() {
 	delete this->id;
 	delete this->value;
