@@ -20,7 +20,12 @@ void ListValue::add(Value *item){
 }
 
 string ListValue::getValue(){
-	return "%LIST%";
+	string value="[ ";
+	value+=items[0]->getValue();
+	for(std::vector<Value *>::iterator i=items.begin()+1; i!=items.end(); i++)
+		value+=", "+(*i)->getValue();
+	value+=" ]";
+	return value;
 }
 
 ListValue::~ListValue() {
