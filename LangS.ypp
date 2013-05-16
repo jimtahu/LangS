@@ -34,7 +34,6 @@ Prog:	Stm ';' Prog	{ theProg->add((Statement *)$1); }
 
 Stm:	Exit			{ $$ = new ExitStatement();}
 	| Ident '=' Value	{ $$ = new AssingmentStatement((Identifier*)$1,(Value*)$3); }
-	| Value			{ }
 	| Print Value 		{ $$ = new PrintStatement((Value*)$2); }
 
 Value:	STRING 			{ $$ = $1; }
@@ -42,7 +41,7 @@ Value:	STRING 			{ $$ = $1; }
 	| Items			{ $$ = $1; }
 	| Value BinOP Value	{ $$ = new BinOpValue(((Identifier*)$2)->getName(),(Value*)$1,(Value*)$3); }
 
-Items: '[' List ']'		{ $$ = $1; }
+Items: '[' List ']'		{ $$ = $2; }
 
 List: List ',' Value	{ ((ListValue *)$1)->add((Value*)$3); $$ = $1; }
 	| Value		{ $$ = new ListValue((Value*)$1); }
