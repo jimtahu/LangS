@@ -24,7 +24,7 @@ void PrintStatement::Execute(){
 
 void PrintStatement::toXML(ostream &out){
 	out<<"<PrintStatement id=\'"<<(void*)this<<"\' >"<<endl;
-	this->toXML(out);
+	this->value->toXML(out);
 	out<<"</PrintStatement>"<<endl;
 }
 
