@@ -18,6 +18,10 @@ void ExitStatement::Execute(){
 	throw new ExitCondition();
 }
 
+void ExitStatement::toXML(std::ostream &out){
+	out<<"<ExitStatement id=\'"<<(void *)this<<"\' />"<<std::endl;
+}
+
 ExitStatement::~ExitStatement() {
 	// TODO Auto-generated destructor stub
 }

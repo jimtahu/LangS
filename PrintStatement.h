@@ -18,7 +18,8 @@ private:
 	Value *value;
 public:
 	PrintStatement(Value *output);
-	void Execute();
+	virtual void Execute();
+	virtual void toXML(std::ostream &out);
 	virtual ~PrintStatement();
 };
 

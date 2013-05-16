@@ -22,6 +22,12 @@ void PrintStatement::Execute(){
 	cout<<this->value->getValue()<<endl;
 }
 
+void PrintStatement::toXML(ostream &out){
+	out<<"<PrintStatement id=\'"<<(void*)this<<"\' >"<<endl;
+	this->toXML(out);
+	out<<"</PrintStatement>"<<endl;
+}
+
 PrintStatement::~PrintStatement() {
 	delete this->value;
 }

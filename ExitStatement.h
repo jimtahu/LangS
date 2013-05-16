@@ -19,7 +19,8 @@ class ExitCondition {
 class ExitStatement: public ParseTree::Statement {
 public:
 	ExitStatement();
-	void Execute();
+	virtual void Execute();
+	virtual void toXML(std::ostream &out);
 	virtual ~ExitStatement();
 };
 
