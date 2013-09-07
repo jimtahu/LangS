@@ -40,6 +40,9 @@ Value:	STRING 			{ $$ = $1; }
 	| Ident			{ $$ = $1; }
 	| Items			{ $$ = $1; }
 	| Value BinOP Value	{ $$ = new BinOpValue(((Identifier*)$2)->getName(),(Value*)$1,(Value*)$3); }
+    | IdexValue     { $$ = $1; }
+
+IdexValue: Ident '[' Value ']'   { $$ = new IdexedValue((Identifier*)$1,(Value*)$3); }
 
 Items: '[' List ']'		{ $$ = $2; }
 
