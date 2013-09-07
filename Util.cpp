@@ -38,7 +38,6 @@ string num2str(double val){
 extern ParseTree::Program *theProg;
 
 int main(int argc, char *argv[]) {
-	theProg = new ParseTree::Program();
 	try{
 		yyparse();
 		theProg->toXML(cout);
@@ -51,4 +50,3 @@ int main(int argc, char *argv[]) {
     RunTime::cleanScalars();
     return 0;
 }//end main
-
