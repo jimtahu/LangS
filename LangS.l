@@ -7,7 +7,7 @@
 #define YYSTYPE ParseTree::Node*
 
 #include "ParseTree.h"
-#include "LangS.tab.hpp"
+#include "LangS.tab.h"
 
 void yyerror(std::string s);
 
